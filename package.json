@@ -1,0 +1,22 @@
+{
+  "name": "node-red-sfe",
+  "description": "A Single File Executable framework for Node-RED",
+  "dependencies": {
+    "@yao-pkg/pkg": "^5.12.0",
+    "esbuild": "^0.23.0",
+    "node-red": "^4.0.2",
+    "winston":"^3.13.1",
+    "winston-daily-rotate-file":"^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.6.0",
+    "prettier": "^3.3.2",
+    "rimraf" :"^6.0.1"
+  },
+  "scripts": {
+    "develop": "node node-red.js --develop",
+    "build": "npm run-script clean && node build.js",
+    "clean": "rimraf ./build/*",
+    "package": "cd ./build && pkg ./package.json --compress gzip -t host --targets node20 --output ./dist/node-red-sfe"
+  }
+}

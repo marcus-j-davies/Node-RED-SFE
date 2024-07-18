@@ -1,0 +1,16 @@
+.red-ui-header-toolbar {
+	filter: grayscale();
+	pointer-events: none;
+	opacity: 0.4;
+}
+
+#red-ui-header {
+	border-bottom-color: green;
+}
+
+#red-ui-palette {
+	filter: grayscale();
+	pointer-events: none;
+	opacity: 0.4;
+}
+
