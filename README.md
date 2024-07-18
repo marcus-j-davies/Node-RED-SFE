@@ -192,7 +192,9 @@ Node-RED SFE can actually operate in 2 ways however:
 
  /* Log File */
  [2024-07-14 03:29:53] info     My Application    : Hello, World
- ```
+ ```  
+
+ **Note**: The log file, only gets created after its been compiled to an SFE regardless of mode.
 
 
  
