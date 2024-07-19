@@ -1,4 +1,5 @@
-.red-ui-header-toolbar {
+ul.red-ui-header-toolbar > li:first-of-type,
+ul.red-ui-header-toolbar > li:last-of-type {
 	filter: grayscale();
 	pointer-events: none;
 	opacity: 0.4;
@@ -13,4 +14,3 @@
 	pointer-events: none;
 	opacity: 0.4;
 }
-
