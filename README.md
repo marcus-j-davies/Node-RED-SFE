@@ -147,7 +147,7 @@ Node-RED SFE can actually operate in 2 ways however:
  When you run `npm run-script build` - it will check if there is such a directory,  
  if there is, it will package it up, and cause it to "lock" to the developed/embedded flow. 
 
- If the editor is left accesible, The mode is identified by the login image, as well as certain actions, that wont be supported in a ReadOnly file system.
+ If the editor is left accesible, The mode is identified by the login image, as well as certain actions being disabled, that wont be supported in a ReadOnly file system.
 
  <img src="./resources/node-red-256-embedded.png" alt="drawing" width="150"/>
  <img src="./resources/node-red-256-external.png" alt="drawing" width="150"/>
