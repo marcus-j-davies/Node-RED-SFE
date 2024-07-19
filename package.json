@@ -1,6 +1,16 @@
 {
 	"name": "node-red-sfe",
 	"description": "A Single File Executable framework for Node-RED",
+	"keywords": [
+		"Node-RED",
+		"Executable",
+		"SFE",
+		"Single",
+		"Native",
+		"Application",
+		"Javascript",
+		"NodeJS"
+	],
 	"dependencies": {
 		"@yao-pkg/pkg": "^5.12.0",
 		"esbuild": "^0.23.0",
