@@ -1,3 +1,6 @@
+const memory = require('@node-red/runtime/lib/nodes/context/memory');
+const localfilesystem = require('@node-red/runtime/lib/nodes/context/localfilesystem');
+
 /* Node-RED Settings
  *
  * Note : The following properties/objects will be ignored as they are integral to the running of Node-RED SFE
@@ -6,6 +9,7 @@
  *  - functionGlobalContext
  *  - editorTheme
  *  - readOnly
+ *  - contextStorage.file.config.dir
  */
 
 module.exports = {
@@ -34,5 +38,11 @@ module.exports = {
 				permissions: '*'
 			}
 		]
+	},
+	contextStorage: {
+		default: 'memory',
+		memory: { module: memory },
+		/* Don't remove this store, as it gets re-configured */
+		file: { module: localfilesystem }
 	}
 };

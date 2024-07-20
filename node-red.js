@@ -95,6 +95,7 @@ const run = async () => {
 	delete nrRuntimeSettings.logging;
 	delete nrRuntimeSettings.editorTheme;
 	delete nrRuntimeSettings.readOnly;
+	delete nrRuntimeSettings.contextStorage.file.config?.dir;
 
 	const nrSettings = {
 		userDir: getUserDir(),
@@ -135,6 +136,15 @@ const run = async () => {
 		nrSettings.editorTheme.login = {
 			image: `/snapshot/${ns}/build/resources/node-red-256-embedded.png`
 		};
+
+		/* Re-configure file context store */
+		if (nrSettings.contextStorage.file.config === undefined) {
+			nrSettings.contextStorage.file.config = {};
+		}
+		nrSettings.contextStorage.file.config.dir = join(
+			dirname(process.argv0),
+			'./'
+		);
 	} else {
 		nrSettings.editorTheme.login = {
 			image: `/snapshot/${ns}/build/resources/node-red-256-external.png`

@@ -169,6 +169,17 @@ Node-RED SFE can actually operate in two ways:
 
   How you use this toolkit is entirely up to you.
 
+ ## Context Stores.
+
+ There are 2 configured context stores.
+
+  - `memory` (default)
+  - `file`
+
+  The file context store, is configured to use the directory the executable is run from, if a flow is embedded
+
+
+
  ## Application Logging.
 
  The SFE adds a global logging function to Node-RED to allow debug logs to be created.
