@@ -10,6 +10,8 @@ const nrRuntimeSettings = require('./settings');
 
 /* ------  Don't mess with anything below - unless you're a nerd ;-) ------ */
 
+const pathPrefix = process.platform === 'win32' ? 'c:/' : '/';
+
 const logFormat = printf(({ level, message, label, timestamp }) => {
 	switch (typeof message) {
 		case 'object':
@@ -51,7 +53,7 @@ const develop = process.argv[2] === '--develop';
 // The embedded path of the userDir (don't mess)
 const ns = '{SFE_PROJECT_DIR}';
 const userDir = 'NRUserDir';
-const userDirPath = `/snapshot/${ns}/build/${userDir}`;
+const userDirPath = `${pathPrefix}snapshot/${ns}/build/${userDir}`;
 
 // File exists?
 const checkFileExists = (path) => {
@@ -129,12 +131,12 @@ const run = async () => {
 	}
 
 	if (isEmbedded) {
-		nrSettings.editorTheme.header.image = `/snapshot/${ns}/build/resources/node-red.png`;
-		nrSettings.editorTheme.page.css = `/snapshot/${ns}/build/resources/sfe.css`;
+		nrSettings.editorTheme.header.image = `${pathPrefix}snapshot/${ns}/build/resources/node-red.png`;
+		nrSettings.editorTheme.page.css = `${pathPrefix}snapshot/${ns}/build/resources/sfe.css`;
 		nrSettings.readOnly = true;
 
 		nrSettings.editorTheme.login = {
-			image: `/snapshot/${ns}/build/resources/node-red-256-embedded.png`
+			image: `${pathPrefix}snapshot/${ns}/build/resources/node-red-256-embedded.png`
 		};
 
 		/* Re-configure file context store */
@@ -147,7 +149,7 @@ const run = async () => {
 		);
 	} else {
 		nrSettings.editorTheme.login = {
-			image: `/snapshot/${ns}/build/resources/node-red-256-external.png`
+			image: `${pathPrefix}snapshot/${ns}/build/resources/node-red-256-external.png`
 		};
 	}
 
