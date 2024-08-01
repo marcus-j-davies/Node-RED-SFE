@@ -26,7 +26,7 @@
 	"scripts": {
 		"develop": "node node-red.js --develop",
 		"build": "npm run-script clean && node build.js",
-		"clean": "rimraf ./build/*",
+		"clean": "rimraf ./build/",
 		"package": "cd ./build && pkg ./package.json --compress gzip -t host --targets node20 --output ./dist/node-red-sfe"
 	}
 }
