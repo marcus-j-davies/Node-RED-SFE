@@ -6,7 +6,6 @@ const localfilesystem = require('@node-red/runtime/lib/nodes/context/localfilesy
  * Note : The following properties/objects will be ignored as they are integral to the running of Node-RED SFE
  *  - userDir
  *  - logging
- *  - functionGlobalContext
  *  - editorTheme
  *  - readOnly
  *  - contextStorage.file.config.dir
@@ -44,5 +43,9 @@ module.exports = {
 		memory: { module: memory },
 		/* Don't remove this store, as it gets re-configured */
 		file: { module: localfilesystem }
-	}
+	},
+
+	/* Do what you want */
+	/* Note : SFELOG will get added to this */
+	functionGlobalContext: {}
 };

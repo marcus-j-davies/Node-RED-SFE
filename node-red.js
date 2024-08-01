@@ -93,7 +93,6 @@ const run = async () => {
 	const server = http.createServer(app);
 
 	delete nrRuntimeSettings.userDir;
-	delete nrRuntimeSettings.functionGlobalContext;
 	delete nrRuntimeSettings.logging;
 	delete nrRuntimeSettings.editorTheme;
 	delete nrRuntimeSettings.readOnly;
@@ -101,9 +100,6 @@ const run = async () => {
 
 	const nrSettings = {
 		userDir: getUserDir(),
-		functionGlobalContext: {
-			SFELOG: nrLog
-		},
 		logging: {
 			console: {
 				level: 'off',
@@ -125,6 +121,11 @@ const run = async () => {
 		},
 		...nrRuntimeSettings
 	};
+
+	if (!nrSettings.functionGlobalContext) {
+		nrSettings.functionGlobalContext = {};
+	}
+	nrSettings.functionGlobalContext.SFELOG = nrLog;
 
 	if (develop) {
 		nrSettings.disableEditor = false;
