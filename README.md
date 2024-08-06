@@ -156,7 +156,7 @@ Node-RED SFE can actually operate in two ways:
  - A standard Node-RED portable application
 
  Both scenarios will output an SFE, so Node JS is still not required in either setup.
- The mode is manipulated based on whether there is a directory called `NRHomeDir`.
+ The mode is manipulated based on whether there is a directory called `NRUserDir`.
 
  When you run `npm run-script build`, it will check if there is such a directory.
  If there is, it will package it up and cause it to "lock" to the developed/embedded flow.
@@ -167,9 +167,9 @@ Node-RED SFE can actually operate in two ways:
  <img src="./resources/node-red-256-external.png" alt="drawing" width="150"/>
 
 `npm run-script develop` basically just starts Node-RED and sets the `userDir` to this folder.
- `NRHomeDir` is no different from the `.node-red` directory.
+ `NRUserDir` is no different from the `.node-red` directory.
 
- If a flow is not embedded, the SFE will create a directory called `NRHomeDir` on startup if it's not already been created.
+ If a flow is not embedded, the SFE will create a directory called `NRUserDir` on startup if it's not already been created.
  This allows you to deploy the executable with a modifiable flow (but note: this also allows you to view the flow code)
 
  For a typical use case, you will:
