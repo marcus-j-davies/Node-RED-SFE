@@ -223,8 +223,28 @@ Node-RED SFE can actually operate in two ways:
 
 ## Current Limitations (To do)
 
- - Modules being loaded in from a function node (ie the `setup` tab), seem troubled - no error, they just don't run (at least for me)
+ - Modules being loaded in from a `function` node (ie the `setup` tab), seem troubled - no error, they just don't run (at least for me)
  - Modules being installed to the parent project (outside `NRUserDir`), can be buggy, especially if there are path resolutions in that module ex: `require(path.join('../','magic'))`
+
+   Example:  
+   Installing `node-red-node-serialport` within the editor, is fully supported, but if installing `serialport` its self for `function` node use, or installing it to expose via `functionGlobalContext`
+   doesn't seem to want to play nice - complains that the native binding isn't found, this is due to path resolutions taking place.
+
+- The `settings` object `httpStatic` must use asbolute paths, as using relative paths will result in that relativity being based on the Virtual File System,
+  You can detect the path to use via `process.argv0`
+
+   Example:
+   ```
+   /* Set the static folder to a folder called `static-fodler` that resides in the same location as the SFE */
+   httpStatic: {'path':join(dirname(process.argv0), 'static-folder')}
+   ```
+
+
+
+
+
+
+
 
 
 
