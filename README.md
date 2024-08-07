@@ -220,3 +220,11 @@ Node-RED SFE can actually operate in two ways:
  ```  
 
  **Note**: The log file only gets created after it's been compiled to an SFE regardless of mode.
+
+## Current Limitations (To do)
+
+ - Modules being loaded in from a function node (ie the `setup` tab), seem troubled - no error, they just don't run (at least for me)
+ - Modules being installed to the parent project (outside `NRUserDir`), can be buggy, especially if there are path resolutions in that module ex: `require(path.join('../','magic'))`
+
+
+
