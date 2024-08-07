@@ -226,7 +226,8 @@ Node-RED SFE can actually operate in two ways:
  - Modules being loaded in from a `function` node (ie the `setup` tab), seem troubled - no error, they just don't run (at least for me)
  - Modules being installed to the parent project (outside `NRUserDir`), can be buggy, especially if there are path resolutions in that module ex: `require(path.join('../','magic'))`
 
-   Example:  
+   Example:
+   
    Installing `node-red-node-serialport` within the editor, is fully supported, but if installing `serialport` its self for `function` node use, or installing it to expose via `functionGlobalContext`
    doesn't seem to want to play nice - complains that the native binding isn't found, this is due to path resolutions taking place.
 
