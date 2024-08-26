@@ -240,6 +240,11 @@ Node-RED SFE can actually operate in two ways:
    httpStatic: {'path':join(dirname(process.argv0), 'static-folder')}
    ```
 
+## Disclaimer
+
+   Node-RED-SFE, is NOT designed to be a Smart Fire Engine
+
+
 
 
 
