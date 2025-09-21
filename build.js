@@ -98,7 +98,7 @@ const esBuildPackage = async (file) => {
 			entryPoints: [absFile],
 			bundle: true,
 			platform: 'node',
-			target: 'node20',
+			target: 'node22',
 			allowOverwrite: true,
 			keepNames: true,
 			outfile: absFile
@@ -137,7 +137,7 @@ const run = async () => {
 		keepNames: true,
 		bundle: true,
 		platform: 'node',
-		target: 'node20',
+		target: 'node22',
 		outfile: outputFile,
 		external: externals
 	};
