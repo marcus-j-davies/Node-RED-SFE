@@ -129,6 +129,7 @@ const run = async () => {
 			},
 			tours: false
 		},
+		nodesDir: `${pathPrefix}snapshot/${ns}/build/resources/nodes`,
 		...nrRuntimeSettings
 	};
 

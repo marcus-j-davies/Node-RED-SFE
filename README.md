@@ -93,6 +93,7 @@ const localfilesystem = require('@node-red/runtime/lib/nodes/context/localfilesy
  *  - flowFile
  *  - editorTheme
  *  - readOnly
+ *  - nodesDir
  */
 
 module.exports = {
@@ -179,11 +180,6 @@ The final executable will contain an embedded file system, and this contains
   - `.locales` : strings for the runtime
 
  
-
-
-
-
-
  ## Context Stores.
 
  There are 2 configured context stores.
@@ -213,6 +209,31 @@ The port that your SFE is using, is defined in the `settings.js` file, but you c
  ```sh
  MySFEApp --port=1880
  ```
+
+## Baked In Nodes
+The executable, of course, includes the standard core nodes that come with Node-RED. However, you can also bake in third-party nodes.
+
+To do this, install Node-RED nodes into the `./resources/nodes` directory.  
+It's important to use the `--prefix` command-line argument when installing:
+
+```
+cd ./resources/nodes
+npm --prefix ./ install node-red-contrib-mssql-plus
+```
+
+**Note**: The `--prefix ./` ensures that the installation path is relative to `./resources/nodes`, rather than:
+ - Your global npm directory
+ - Your user-level npm directory
+ - Or even the root project directory (e.g., node-red-sfe)
+
+
+This feature is not the same as installing nodes using the standard palette manager during flow design.
+Baking in nodes is particularly useful when you distribute an executable without an embedded flow. In such cases, baked-in nodes are available by default, even before any flows are deployed.
+
+**Embedded Flows Automatically Include Their Nodes**
+If you're distributing an executable with an embedded default flow, any third-party nodes installed during the flow’s design will be automatically bundled and expanded as part of the embedding process.
+In this case, there's no need to manually bake in those nodes, as the embedding process ensures they are included.
+
 
 ## Purge the Home Directory(s).
 If you want to clear either of the Home Directories, you can pass the following argument:

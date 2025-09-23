@@ -8,6 +8,7 @@ const localfilesystem = require('@node-red/runtime/lib/nodes/context/localfilesy
  *  - flowFile
  *  - editorTheme
  *  - readOnly
+ *  - nodesDir
  */
 
 module.exports = {
