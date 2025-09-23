@@ -210,7 +210,16 @@ The port that your SFE is using, is defined in the `settings.js` file, but you c
  MySFEApp --port=1880
  ```
 
-## Baked In Nodes
+## Purge the Home Directory(s).
+If you want to clear either of the Home Directories, you can pass the following argument:
+ ```sh
+ MySFEApp --reset
+ ```
+
+ This will wipe the Home Directory based on the current running mode (embedded, noload)  
+ If you have an embdded flow (and its being used), this will result in the captured Home Ditectory being restored.
+
+ ## Baked In Nodes
 The executable, of course, includes the standard core nodes that come with Node-RED. However, you can also bake in third-party nodes.
 
 To do this, install Node-RED nodes into the `./resources/nodes` directory.  
@@ -234,18 +243,7 @@ Baking in nodes is particularly useful when you distribute an executable without
 If you're distributing an executable with an embedded default flow, any third-party nodes installed during the flow’s design will be automatically bundled and expanded as part of the embedding process.
 In this case, there's no need to manually bake in those nodes, as the embedding process ensures they are included.
 
-
-## Purge the Home Directory(s).
-If you want to clear either of the Home Directories, you can pass the following argument:
- ```sh
- MySFEApp --reset
- ```
-
- This will wipe the Home Directory based on the current running mode (embedded, noload)  
- If you have an embdded flow (and its being used), this will result in the captured Home Ditectory being restored.
-
-
- ## Autoload a web interface.
+## Autoload a web interface.
 If you include a file of `AUTOLOAD` - along side your SFE, after the SFE has started  
 it will load your default browser with the URL that is contained in `AUTOLOAD`
 

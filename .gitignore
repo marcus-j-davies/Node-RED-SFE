@@ -7,3 +7,6 @@ build
 flows.json
 .flows.json.backup
 .locales.dat
+resources/nodes/nodes_modules
+resources/nodes/package-lock.json
+resources/nodes/package.json
