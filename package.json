@@ -1,7 +1,7 @@
 {
 	"name": "node-red-sfe",
 	"description": "A Single File Executable framework for Node-RED",
-	"version": "0.9.0",
+	"version": "0.9.1",
 	"keywords": [
 		"Node-RED",
 		"Executable",
@@ -30,6 +30,6 @@
 		"develop": "node node-red.js --develop",
 		"build": "npm run clean && node build.js && npm run package",
 		"clean": "rimraf ./build/",
-		"package": "cd ./build && pkg ./package.json --compress gzip -t node22 --targets host --output ./dist/node-red-sfe"
+		"package": "cd ./build && pkg ./package.json --compress gzip --targets node22 --output ./dist/node-red-sfe"
 	}
 }
