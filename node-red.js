@@ -12,7 +12,8 @@ const {
 	noLoadUserDir,
 	localesDir,
 	ns,
-	flowsFile
+	flowsFile,
+	extraNodes
 } = require('./constants');
 
 /* ------  Don't mess with anything below - unless you're a nerd ;-) ------ */
@@ -90,6 +91,15 @@ switch (runMode) {
 		Title = nrRuntimeSettings.consoleTitle || 'Node RED SFE';
 		break;
 }
+const getExtraNodesDir = () => {
+	switch (runMode) {
+		case 1:
+			return join(__dirname, extraNodes);
+
+		default:
+			return join(`${pathPrefix}snapshot/${ns}/build`, extraNodes);
+	}
+};
 process.stdout.write(
 	`${String.fromCharCode(27)}]0;${Title}${String.fromCharCode(7)}`
 );
@@ -129,7 +139,7 @@ const run = async () => {
 			},
 			tours: false
 		},
-		nodesDir: `${pathPrefix}snapshot/${ns}/build/resources/nodes`,
+		nodesDir: getExtraNodesDir(),
 		...nrRuntimeSettings
 	};
 

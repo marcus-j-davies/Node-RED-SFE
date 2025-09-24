@@ -4,6 +4,7 @@ module.exports = {
 	flowsFile: 'flows.json',
 	localesDir: './.locales',
 	localesSource: './node_modules/@node-red/runtime/locales',
+	extraNodes: './resources/nodes',
 	outputDir: './build',
 	inputFile: './node-red.js',
 	outputName: 'node-red-bundle.js',
